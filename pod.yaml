@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: set9-pod
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: set9-storage
+  volumes:
+    - name: set9-storage
+      persistentVolumeClaim:
+        claimName: set9-pvc
